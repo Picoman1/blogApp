@@ -11,7 +11,7 @@ const Login = () => {
   const navigate=useNavigate();
  function capvalue(){
   console.log(form)
-  axiosInstance.post('http://localhost:3000/user/login',form).then((res)=>{
+  axiosInstance.post('/api/user/login',form).then((res)=>{
       alert(res.data.message);
       if(res.data.token){
         sessionStorage.setItem('logintoken',res.data.token)

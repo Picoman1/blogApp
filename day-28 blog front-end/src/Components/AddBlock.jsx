@@ -15,12 +15,12 @@ const AddBlock = () => {
   const location=useLocation()
   function addBlog(){
     if(location.state!=null){
-      axiosInstance.put('http://localhost:3000/blog/addblogs/put/'+location.state.val._id,blogData).then((res)=>{
+      axiosInstance.put('/api/blog/addblogs/put/'+location.state.val._id,blogData).then((res)=>{
         alert(res.data.message);
         navigate('/blogs')
       })
     }else{
-      axiosInstance.post('http://localhost:3000/blog/addblogs/post',blogData).then((res)=>{
+      axiosInstance.post('/api/blog/addblogs/post',blogData).then((res)=>{
         alert(res.data.message);
         navigate('/blogs')
       }).catch((error)=>{

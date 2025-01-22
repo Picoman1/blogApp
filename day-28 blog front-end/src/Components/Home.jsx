@@ -10,7 +10,7 @@ const Home = () => {
     const [cardData,setcardData]=useState([])
     const navigate=useNavigate()
     useEffect(()=>{
-      axiosInstance.get('http://localhost:3000/blog/addblogs/get').then((res)=>{
+      axiosInstance.get('/api/blog/addblogs/get').then((res)=>{
            setcardData(res.data)
       }).catch((err)=>{
         console.log(err)
@@ -21,7 +21,7 @@ const Home = () => {
     }
     const handleDelete = async (id) => {
         try {
-          const res = await axiosInstance.delete(`http://localhost:3000/blog/addblogs/delete/${id}`);
+          const res = await axiosInstance.delete(`/api/blog/addblogs/delete/${id}`);
           console.log('Deleted blog:', res.data);
           // Remove deleted card from state
           setCardData((prevData) => prevData.filter((item) => item._id !== id));
