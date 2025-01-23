@@ -11,7 +11,7 @@ const Login = () => {
   const navigate=useNavigate();
  function capvalue(){
   console.log(form)
-  axios.post('http://13.61.174.75/api/user/login',form).then((res)=>{
+  axios.post('/api/user/login',form).then((res)=>{
       alert(res.data.message);
       if(res.data.token){
         sessionStorage.setItem('logintoken',res.data.token)
